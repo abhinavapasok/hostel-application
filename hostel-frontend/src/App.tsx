@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import {BrowserRouter as Router,Routes,Route, Form} from 'react-router-dom'
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import Home from './Pages/Home'
 import Navbar from './Components/Navbar'
 import ViewDetails from './Pages/ViewDetails'
-import Master from './pages/Master'
+import MasterTable from './Components/MasterTable'
 
 function App() {
 
@@ -12,9 +11,9 @@ function App() {
         {/* {showNav &&<Navbar />} */}
         <Navbar/>
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="view-details" element={<ViewDetails />}></Route>
-          <Route exact path="view-master" element={<Master />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="view-details" element={<ViewDetails />}></Route>
+          <Route path="view-master" element={<MasterTable/>}> </Route>
         </Routes>
       </Router>
   )

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { MdEdit } from "react-icons/md";
-import EditIcon from "@mui/icons-material/Edit";
+import { useEffect, useState } from "react";
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 function MasterTable() {
@@ -38,7 +36,7 @@ function MasterTable() {
             </tr>
           </thead>
           <tbody>
-            {genderfields.map((item) => {
+            {genderfields.map((item:any) => {
               return (
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
@@ -66,7 +64,7 @@ function MasterTable() {
             </tr>
           </thead>
           <tbody>
-            {admifields.map((item) => {
+            {admifields.map((item:any) => {
               return (
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
@@ -92,7 +90,7 @@ function MasterTable() {
             </tr>
           </thead>
           <tbody>
-            {e_grantsfields.map((item) => {
+            {e_grantsfields.map((item:any) => {
               return (
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>

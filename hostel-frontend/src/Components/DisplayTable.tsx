@@ -90,7 +90,7 @@ function DisplayTable() {
           </tr>
         </thead>
         <tbody>
-          {data.map((item:FormValues, index) => {
+          {data.map((item:FormValues) => {
             return (
               <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={item.admi_no}>
                 <th

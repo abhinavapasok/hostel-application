@@ -9,31 +9,30 @@ import {
   RadioGroup,
   Select,
 } from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+
 
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { FormLabel } from "react-bootstrap";
-import { LocalizationProvider } from "@mui/x-date-pickers";
 
-// type FormValues = {
-//   name: string;
-//   admi_no: string;
-//   admi_year: number;
-//   admi_type: string;
-//   admi_category: string;
-//   mobile_no: string;
-//   email: string;
-//   income: number;
-//   parent_name: string;
-//   parent_mobile: string;
-//   distance: string;
-//   gender: string;
-//   e_grants_category: string;
-//   value: string;
-// };
+
+type FormValues = {
+  name: string;
+  admi_no: string;
+  admi_year: number;
+  admi_type: string;
+  admi_category: string;
+  mobile_no: string;
+  email: string;
+  income: number;
+  parent_name: string;
+  parent_mobile: string;
+  distance: string;
+  gender: string;
+  e_grants_category: string;
+  value: string;
+};
 
 function Form2() {
   // const handleRadioChange = (e) => {
@@ -50,7 +49,7 @@ function Form2() {
   const { register, control, handleSubmit, formState } = form;
 
   const { errors } = formState;
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data:FormValues) => {
     console.log("form submited", data);
     try {
       const response = await fetch("http://localhost:4000/create-user", {
@@ -178,8 +177,8 @@ function Form2() {
           <label className=" block text-gray-700 text-m font-semibold mb-2">
             College Admission Admision year :
           </label>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
+          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+            < DatePicker
               label={'"Year"'}
               {...register("admi_year", {
                 required: "This field is required.",
@@ -187,7 +186,7 @@ function Form2() {
               openTo="year"
               views={["year"]}
             />
-          </LocalizationProvider>
+          </LocalizationProvider> */}
         </div>
 
         <div className="flex flex-col ">
