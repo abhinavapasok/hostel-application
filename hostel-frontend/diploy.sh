@@ -8,7 +8,7 @@ npm run build
 echo "Deplyoing..."
 
 
-rm -rf /var/www/51.20.190.70/build
+sudo rm -rf /var/www/51.20.190.70/build
 
-cp -r /dist/* /var/www/51.20.190.70
+sudo cp -r dist/* /var/www/51.20.190.70
 echo "Done" 
