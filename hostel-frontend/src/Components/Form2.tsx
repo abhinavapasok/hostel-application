@@ -156,7 +156,7 @@ function Form2() {
           </FormControl>
           <p className="text-red-600 text-left ">{errors.admi_no?.message}</p>
         </div>
-        {/* <div className="flex flex-col m-1 ">
+        <div className="flex flex-col m-1 ">
           <label className=" block text-gray-700 text-m font-semibold mb-2">
             Enter College Admission Admision year :
           </label>
@@ -172,12 +172,12 @@ function Form2() {
             })}
           ></input>
           <p className="text-red-600 text-left ">{errors.admi_year?.message}</p>
-        </div> */}
-        <div className="flex flex-row justify-between p-1">
+        </div>
+        {/* <div className="flex flex-row justify-between p-1">
           <label className=" block text-gray-700 text-m font-semibold mb-2">
             College Admission Admision year :
           </label>
-          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
             < DatePicker
               label={'"Year"'}
               {...register("admi_year", {
@@ -186,8 +186,8 @@ function Form2() {
               openTo="year"
               views={["year"]}
             />
-          </LocalizationProvider> */}
-        </div>
+          </LocalizationProvider>
+        </div> */}
 
         <div className="flex flex-col ">
           <label className=" block text-gray-700 text-m font-semibold mb-2">
