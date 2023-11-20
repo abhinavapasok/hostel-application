@@ -52,7 +52,7 @@ function Form2() {
   const onSubmit = async (data:FormValues) => {
     console.log("form submited", data);
     try {
-      const response = await fetch("http://51.20.190.70/create-user", {
+      const response = await fetch("http://51.20.190.70/api/create-user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -68,7 +68,7 @@ function Form2() {
   const [e_grantsfields, setE_grantsFields] = useState([]);
   const getData = async () => {
     try {
-      const response = await fetch("http://51.20.190.70/get-fields");
+      const response = await fetch("http://51.20.190.70/api/get-fields");
       const jsondata = await response.json();
       setGenderFields(jsondata[0]);
       setAdmiFields(jsondata[1]);
