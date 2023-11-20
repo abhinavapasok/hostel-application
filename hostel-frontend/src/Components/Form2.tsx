@@ -52,7 +52,7 @@ function Form2() {
   const onSubmit = async (data:FormValues) => {
     console.log("form submited", data);
     try {
-      const response = await fetch("http://localhost:4000/create-user", {
+      const response = await fetch("http://localhost:4000/api/create-user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

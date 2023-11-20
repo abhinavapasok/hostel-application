@@ -7,7 +7,7 @@ function MasterTable() {
   const [e_grantsfields, setE_grantsFields] = useState([]);
   const getData = async () => {
     try {
-      const response = await fetch("http://localhost:4000/get-fields");
+      const response = await fetch("http://localhost:4000/api/get-fields");
       const jsondata = await response.json();
       setGenderFields(jsondata[0]);
       setAdmiFields(jsondata[1]);

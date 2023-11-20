@@ -22,7 +22,7 @@ function DisplayTable() {
   const getData = async () => {
     console.log("hi")
     try {
-      const response = await fetch("http://localhost:4000/get-details");
+      const response = await fetch("http://localhost:4000/api/get-details");
       const jsondata = await response.json();
       setData(jsondata);
 
@@ -34,7 +34,7 @@ function DisplayTable() {
 
   const deleteUser = async (id:any)=>{
     try{
-      const res = await fetch(`http://localhost:4000/remove-user/${id}`,{
+      const res = await fetch(`http://localhost:4000/api/remove-user/${id}`,{
         method: "DELETE"
       })
       console.log(res)
