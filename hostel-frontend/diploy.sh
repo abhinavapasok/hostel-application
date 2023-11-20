@@ -1,3 +1,6 @@
+#!/bin/sh
+
+
 echo "Building app" 
 
 npm run build
