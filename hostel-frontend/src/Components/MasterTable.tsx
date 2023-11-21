@@ -19,6 +19,19 @@ function MasterTable() {
       console.error(err.message);
     }
   };
+
+  const deleteUser = async (e:any,id: any,field:string) => {
+    e.stopPropagation();
+    try {
+      const res = await fetch(`${baseUrl}/remove-user?id=${id}&&field=${field}`, {
+        method: "DELETE",
+      });
+      console.log(res);
+    } catch (err: any) {
+      console.error(err.message);
+    }
+    getData()
+  };
   useEffect(() => {
     getData();
   }, []);
@@ -43,7 +56,7 @@ function MasterTable() {
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
-                    <button>
+                    <button onClick={(e)=> deleteUser(e,item.type,"gender")}>
                       <ModeEditIcon />
                     </button>
                   </td>

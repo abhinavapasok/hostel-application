@@ -63,17 +63,18 @@ app.delete("api/remove-user/:id",async( req,res)=>{
         console.error(err.message)
     }
 })
-// app.delete("/remove-field/:id/:field",async( req,res)=>{
-//     try{
-//         const { id,field } = req.params 
-//         const DeleteField = await pool.query(
-//             `DELETE FROM ${field} WHERE type = $1`,[id]
-//         )
-//         res.json("Items was deleted")
-//     } catch (err){
-//         console.error(err.message)
-//     }
-// })
+app.delete("/remove-field",async( req,res)=>{
+    try{
+
+        const { id,field } = req.query 
+        const DeleteField = await pool.query(
+            `DELETE FROM ${field} WHERE type = $1`,[id]
+        )
+        res.json("Items was deleted")
+    } catch (err){
+        console.error(err.message)
+    }
+})
 
 app.listen(4000,()=>{
     console.log("Listening at port 4000")

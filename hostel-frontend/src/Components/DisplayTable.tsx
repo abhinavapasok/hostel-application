@@ -42,6 +42,7 @@ function DisplayTable() {
     } catch (err: any) {
       console.error(err.message);
     }
+    getData()
   };
 
   useEffect(() => {
