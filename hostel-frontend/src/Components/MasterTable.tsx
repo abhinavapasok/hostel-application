@@ -41,7 +41,7 @@ function MasterTable() {
 
   return (
     <div className="grid md:grid-cols-3">
-      <div className="relative overflow-x-auto w-full ">
+      <div className="relative overflow-x-auto w-full mb-2">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-l text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

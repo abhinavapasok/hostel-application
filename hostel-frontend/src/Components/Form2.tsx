@@ -10,14 +10,12 @@ import {
   Select,
 } from "@mui/material";
 
-
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { FormLabel } from "react-bootstrap";
 
-import {baseUrl} from "../baseUrl"
-
+import { baseUrl } from "../baseUrl";
 
 type FormValues = {
   name: string;
@@ -42,7 +40,7 @@ function Form2() {
   // };
 
   const [checked, setChecked] = useState(false);
-  console.log(baseUrl)
+  console.log(baseUrl);
 
   const handleCheckChange = (event: any) => {
     setChecked(event.target.checked);
@@ -52,7 +50,7 @@ function Form2() {
   const { register, control, handleSubmit, formState } = form;
 
   const { errors } = formState;
-  const onSubmit = async (data:FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     console.log("form submited", data);
     try {
       const response = await fetch(`${baseUrl}/create-user`, {
@@ -86,7 +84,7 @@ function Form2() {
     getData();
   }, []);
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center  ">
       <form
         className="bg-white px-4 gap-x-[200px]"
         // onSubmit={onSubmitForm}
@@ -351,14 +349,16 @@ function Form2() {
             {errors.parent_mobile?.message}
           </p>
         </div>
-        <div className="block text-gray-700 text-m font-semibold mb-2">
+        <div className="flex justify-center items-center text-gray-700 text-m font-semibold  max-w-lg">
           <Checkbox
             checked={checked}
             onChange={handleCheckChange}
             inputProps={{ "aria-label": "controlled" }}
           />
-          I hear by declare that the information from the given above are
-          <br /> true to the best of knowledge and belief.
+          <p >
+            I hear by declare that the information from the given above are true
+            to the best of knowledge and belief.
+          </p>
         </div>
         <div className="flex items-center justify-center">
           {checked ? (
