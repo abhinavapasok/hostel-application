@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { baseUrl } from "../baseUrl";
-
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function MasterTable() {
   const [genderfields, setGenderFields] = useState([]);
@@ -20,17 +20,20 @@ function MasterTable() {
     }
   };
 
-  const deleteUser = async (e:any,id: any,field:string) => {
+  const deleteUser = async (e: any, id: any, field: string) => {
     e.stopPropagation();
     try {
-      const res = await fetch(`${baseUrl}/remove-field?id=${id}&&field=${field}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `${baseUrl}/remove-field?id=${id}&&field=${field}`,
+        {
+          method: "DELETE",
+        }
+      );
       console.log(res);
     } catch (err: any) {
       console.error(err.message);
     }
-    getData()
+    getData();
   };
   useEffect(() => {
     getData();
@@ -51,13 +54,13 @@ function MasterTable() {
             </tr>
           </thead>
           <tbody>
-            {genderfields.map((item:any) => {
+            {genderfields.map((item: any) => {
               return (
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
-                    <button onClick={(e)=> deleteUser(e,item.type,"gender")}>
-                      <ModeEditIcon />
+                    <button onClick={(e) => deleteUser(e, item.type, "gender")}>
+                      <DeleteIcon />
                     </button>
                   </td>
                 </tr>
@@ -65,6 +68,12 @@ function MasterTable() {
             })}
           </tbody>
         </table>
+        <button
+          type="button"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 me-2 mb-2 ml-12 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Add
+        </button>
       </div>
       <div className="relative overflow-x-auto m-2">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -79,18 +88,21 @@ function MasterTable() {
             </tr>
           </thead>
           <tbody>
-            {admifields.map((item:any) => {
+            {admifields.map((item: any) => {
               return (
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
-                    <ModeEditIcon />
+                  <button onClick={(e) => deleteUser(e, item.type, "admi_category")}>
+                      <DeleteIcon />
+                    </button>
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
+        <button>Add</button>
       </div>
       <div className="relative overflow-x-auto m-2">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -105,12 +117,14 @@ function MasterTable() {
             </tr>
           </thead>
           <tbody>
-            {e_grantsfields.map((item:any) => {
+            {e_grantsfields.map((item: any) => {
               return (
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
-                    <ModeEditIcon />
+                  <button onClick={(e) => deleteUser(e, item.type, "e_grants_category")}>
+                      <DeleteIcon />
+                    </button>            
                   </td>
                 </tr>
               );
