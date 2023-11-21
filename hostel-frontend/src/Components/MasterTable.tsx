@@ -23,7 +23,7 @@ function MasterTable() {
   const deleteUser = async (e:any,id: any,field:string) => {
     e.stopPropagation();
     try {
-      const res = await fetch(`${baseUrl}/remove-user?id=${id}&&field=${field}`, {
+      const res = await fetch(`${baseUrl}/remove-field?id=${id}&&field=${field}`, {
         method: "DELETE",
       });
       console.log(res);

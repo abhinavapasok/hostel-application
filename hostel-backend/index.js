@@ -8,7 +8,7 @@ app.use(cors())
 app.use(express.json())
 
 
-app.post("api/create-user", async(req,res) => {
+app.post("/api/create-user", async(req,res) => {
     try{
         const {name,admi_no,admi_year,admi_category,admi_type,mobile_no,email,income,parent_name,parent_mobile,distance,gender,e_grants_category} = req.body
         console.log(admi_no)
@@ -23,7 +23,7 @@ app.post("api/create-user", async(req,res) => {
 })
 
 
-app.get("api/get-details",async (req,res)=>{
+app.get("/api/get-details",async (req,res)=>{
     try{
         const details = await pool.query(
             "SELECT * FROM student"
@@ -33,7 +33,7 @@ app.get("api/get-details",async (req,res)=>{
         console.error(err.message)
     }
 })
-app.get("api/get-fields",async (req,res)=>{
+app.get("/api/get-fields",async (req,res)=>{
     try{
         const genderTypes = await pool.query(
             "SELECT * FROM gender"
@@ -52,7 +52,7 @@ app.get("api/get-fields",async (req,res)=>{
 
 
 
-app.delete("api/remove-user/:id",async( req,res)=>{
+app.delete("/api/remove-user/:id",async( req,res)=>{
     try{
         const { id } = req.params 
         const DeleteUser = await pool.query(
@@ -63,7 +63,7 @@ app.delete("api/remove-user/:id",async( req,res)=>{
         console.error(err.message)
     }
 })
-app.delete("api/remove-field",async( req,res)=>{
+app.delete("/api/remove-field",async( req,res)=>{
     try{
 
         const { id,field } = req.query 
