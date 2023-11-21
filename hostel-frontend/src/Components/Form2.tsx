@@ -16,6 +16,8 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { FormLabel } from "react-bootstrap";
 
+import {baseUrl} from "../baseUrl"
+
 
 type FormValues = {
   name: string;
@@ -40,6 +42,7 @@ function Form2() {
   // };
 
   const [checked, setChecked] = useState(false);
+  console.log(baseUrl)
 
   const handleCheckChange = (event: any) => {
     setChecked(event.target.checked);
@@ -52,7 +55,7 @@ function Form2() {
   const onSubmit = async (data:FormValues) => {
     console.log("form submited", data);
     try {
-      const response = await fetch("http://51.20.190.70/api/create-user", {
+      const response = await fetch(`${baseUrl}/create-user`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -68,7 +71,7 @@ function Form2() {
   const [e_grantsfields, setE_grantsFields] = useState([]);
   const getData = async () => {
     try {
-      const response = await fetch("http://51.20.190.70/api/get-fields");
+      const response = await fetch(`${baseUrl}/get-fields`);
       const jsondata = await response.json();
       setGenderFields(jsondata[0]);
       setAdmiFields(jsondata[1]);

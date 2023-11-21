@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { baseUrl } from "../baseUrl";
+
 
 function MasterTable() {
   const [genderfields, setGenderFields] = useState([]);
@@ -7,7 +9,7 @@ function MasterTable() {
   const [e_grantsfields, setE_grantsFields] = useState([]);
   const getData = async () => {
     try {
-      const response = await fetch("http://51.20.190.70/api/get-fields");
+      const response = await fetch(`${baseUrl}/get-fields`);
       const jsondata = await response.json();
       setGenderFields(jsondata[0]);
       setAdmiFields(jsondata[1]);

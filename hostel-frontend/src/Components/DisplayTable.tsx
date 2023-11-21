@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {baseUrl} from "../baseUrl"
 
 
 type FormValues = {
@@ -16,13 +17,15 @@ type FormValues = {
   gender: string;
   e_grants_category: string;
 };
+
+
 function DisplayTable() {
   const [data , setData] = useState([]);
 
   const getData = async () => {
     console.log("hi")
     try {
-      const response = await fetch("http://51.20.190.70/api/get-details");
+      const response = await fetch(`${baseUrl}/get-details`);
       const jsondata = await response.json();
       setData(jsondata);
 
@@ -34,7 +37,7 @@ function DisplayTable() {
 
   const deleteUser = async (id:any)=>{
     try{
-      const res = await fetch(`http://51.20.190.70/api/remove-user/${id}`,{
+      const res = await fetch(`${baseUrl}/remover-user/${id}`,{
         method: "DELETE"
       })
       console.log(res)
