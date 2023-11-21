@@ -63,7 +63,7 @@ app.delete("api/remove-user/:id",async( req,res)=>{
         console.error(err.message)
     }
 })
-app.delete("/remove-field",async( req,res)=>{
+app.delete("api/remove-field",async( req,res)=>{
     try{
 
         const { id,field } = req.query 
