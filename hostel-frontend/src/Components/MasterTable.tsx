@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { baseUrl } from "../baseUrl";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Dialog from "./Dialog";
+
 
 function MasterTable() {
   const [genderfields, setGenderFields] = useState([]);
@@ -13,7 +15,6 @@ function MasterTable() {
       setGenderFields(jsondata[0]);
       setAdmiFields(jsondata[1]);
       setE_grantsFields(jsondata[2]);
-      console.log(admifields);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -39,8 +40,8 @@ function MasterTable() {
   }, []);
 
   return (
-    <div className="flex">
-      <div className="relative overflow-x-auto m-2">
+    <div className="grid md:grid-cols-3">
+      <div className="relative overflow-x-auto w-full ">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-l text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -67,16 +68,17 @@ function MasterTable() {
             })}
           </tbody>
         </table>
-        <button
+        {/* <button
           type="button"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 me-2 mb-2 ml-12 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         >
           Add
-        </button>
+        </button> */}
+        <Dialog field={"gender"} />
       </div>
-      <div className="relative overflow-x-auto m-2">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-l text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <div className="relative overflow-x-auto  w-full">
+        <table className="w-full  text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-l  text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Type
@@ -92,7 +94,9 @@ function MasterTable() {
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
-                  <button onClick={(e) => deleteUser(e, item.type, "admi_category")}>
+                    <button
+                      onClick={(e) => deleteUser(e, item.type, "admi_category")}
+                    >
                       <DeleteIcon />
                     </button>
                   </td>
@@ -101,9 +105,10 @@ function MasterTable() {
             })}
           </tbody>
         </table>
-        <button>Add</button>
+        {/* <button>Add</button> */}
+        <Dialog field="admi_category" />
       </div>
-      <div className="relative overflow-x-auto m-2">
+      <div className="relative overflow-x-auto w-full">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-l text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -121,15 +126,20 @@ function MasterTable() {
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
-                  <button onClick={(e) => deleteUser(e, item.type, "e_grants_category")}>
+                    <button
+                      onClick={(e) =>
+                        deleteUser(e, item.type, "e_grants_category")
+                      }
+                    >
                       <DeleteIcon />
-                    </button>            
+                    </button>
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
+      <Dialog field="e_grants_category" />
       </div>
     </div>
   );

@@ -21,7 +21,20 @@ app.post("/api/create-user", async(req,res) => {
         console.log("err")
     }
 })
+app.post("/api/create-field",async(req,res)=>{
 
+    try{
+        const {field,type} = req.body
+        console.log(field,type)
+        const newField = await pool.query(
+            `INSERT INTO ${field} values ($1::text)`,[type]
+        )
+        
+    }
+    catch (err){
+        console.error(err.message)
+    }
+})
 
 app.get("/api/get-details",async (req,res)=>{
     try{

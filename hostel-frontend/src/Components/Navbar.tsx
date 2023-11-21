@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const [clickState, setclickState] = useState(false)
 
+  const [clickState, setclickState] = useState(false)
   const handleClick = () => {
     if (clickState) {
       setclickState(false);
@@ -19,7 +19,7 @@ function Navbar() {
         <Link to="/" className="flex items-center">
           <img
             src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8 mr-3"
+            className="h-8"
             alt="Flowbite Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
