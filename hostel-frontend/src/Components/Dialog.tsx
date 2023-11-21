@@ -17,7 +17,8 @@ function Dialog({field}:any) {
   };
   
   const handleSubmit = async (e:any)=>{
-    e.preventDefalut()
+    e.preventDefault()
+
     try {
       console.log(field)
       const response = await fetch(`${baseUrl}/create-field`, {
@@ -35,9 +36,7 @@ function Dialog({field}:any) {
 
   return (
 
-
-
-    <div className="">
+    <div >
       <button
         data-modal-target="authentication-modal"
         data-modal-toggle="authentication-modal"
