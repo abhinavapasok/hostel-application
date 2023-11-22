@@ -41,8 +41,8 @@ function MasterTable() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1  sm:grid-cols-3 gap-5 ">
-      <div className="relative overflow-x-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 ">
+      <div className="relative overflow-x-auto w-full">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-l text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -61,7 +61,6 @@ function MasterTable() {
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
                     <button
-                      className="flex "
                       onClick={(e) =>
                         deleteUser(e, item.type, "gender")
                       }
