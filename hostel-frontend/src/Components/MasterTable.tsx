@@ -35,7 +35,7 @@ function MasterTable() {
     }
   };
   useEffect(() => {
-    getData();
+    getData()
   }, []);
 
   return (
