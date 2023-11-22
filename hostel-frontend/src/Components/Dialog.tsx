@@ -39,7 +39,7 @@ function Dialog({field,getData}:any) {
 
   return (
 
-    <div className="w-[inherit]">
+    <div className="w-[full] py-1">
       <button
         data-modal-target="authentication-modal"
         data-modal-toggle="authentication-modal"
