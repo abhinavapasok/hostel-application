@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { baseUrl } from "../baseUrl";
-import DeleteIcon from "@mui/icons-material/Delete";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Dialog from "./Dialog";
-
 
 function MasterTable() {
   const [genderfields, setGenderFields] = useState([]);
@@ -30,17 +29,17 @@ function MasterTable() {
         }
       );
       console.log(res);
+      getData();
     } catch (err: any) {
       console.error(err.message);
     }
-    getData();
   };
   useEffect(() => {
     getData();
   }, []);
 
   return (
-    <div className="grid md:grid-cols-3">
+    <div className="grid md:grid-cols-3 gap-2">
       <div className="relative overflow-x-auto w-full mb-2">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-l text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -60,7 +59,7 @@ function MasterTable() {
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
                     <button onClick={(e) => deleteUser(e, item.type, "gender")}>
-                      <DeleteIcon />
+                      <DeleteOutlineIcon />
                     </button>
                   </td>
                 </tr>
@@ -74,7 +73,7 @@ function MasterTable() {
         >
           Add
         </button> */}
-        <Dialog field={"gender"} />
+        <Dialog field={"gender"} getData={getData()} />
       </div>
       <div className="relative overflow-x-auto  w-full">
         <table className="w-full  text-sm text-left text-gray-500 dark:text-gray-400">
@@ -97,7 +96,7 @@ function MasterTable() {
                     <button
                       onClick={(e) => deleteUser(e, item.type, "admi_category")}
                     >
-                      <DeleteIcon />
+                      <DeleteOutlineIcon />
                     </button>
                   </td>
                 </tr>
@@ -106,7 +105,7 @@ function MasterTable() {
           </tbody>
         </table>
         {/* <button>Add</button> */}
-        <Dialog field="admi_category" />
+        <Dialog field="admi_category" getData={getData()} />
       </div>
       <div className="relative overflow-x-auto w-full">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -131,7 +130,7 @@ function MasterTable() {
                         deleteUser(e, item.type, "e_grants_category")
                       }
                     >
-                      <DeleteIcon />
+                      <DeleteOutlineIcon />
                     </button>
                   </td>
                 </tr>
@@ -139,7 +138,7 @@ function MasterTable() {
             })}
           </tbody>
         </table>
-      <Dialog field="e_grants_category" />
+        <Dialog field="e_grants_category" getData={getData()} />
       </div>
     </div>
   );

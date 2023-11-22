@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { baseUrl } from "../baseUrl";
 
-function Dialog({field}:any) {
+function Dialog({field,getData}:any) {
 
 
   const [clickState, setclickState] = useState(false)
   const [type, setType] = useState("")
+
+
 
   const handleClick = () => {
     if (clickState) {
@@ -27,6 +29,7 @@ function Dialog({field}:any) {
         body: JSON.stringify({field,type})
       });
       console.log(response);
+      getData()
     } catch (err: any) {
       console.error(err.message);
     }
