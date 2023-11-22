@@ -41,8 +41,8 @@ function MasterTable() {
   }, []);
 
   return (
-    <div className="grid md:grid-cols-3 gap-2">
-      <div className="relative overflow-x-auto w-full mb-2">
+    <div className="grid grid-cols-1  sm:grid-cols-3 gap-5 ">
+      <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-l text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -60,7 +60,12 @@ function MasterTable() {
                 <tr>
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
-                    <button onClick={(e) => deleteUser(e, item.type, "gender")}>
+                    <button
+                      className="flex "
+                      onClick={(e) =>
+                        deleteUser(e, item.type, "gender")
+                      }
+                    >
                       <DeleteOutlineIcon />
                     </button>
                   </td>
@@ -69,16 +74,10 @@ function MasterTable() {
             })}
           </tbody>
         </table>
-        {/* <button
-          type="button"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 me-2 mb-2 ml-12 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        >
-          Add
-        </button> */}
-        <Dialog field={"gender"} getData={getData} />
+        <Dialog field="e_grants_category" getData={getData} />
       </div>
-      <div className="relative overflow-x-auto  w-full">
-        <table className="w-full  text-sm text-left text-gray-500 dark:text-gray-400">
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-l  text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -109,7 +108,7 @@ function MasterTable() {
         {/* <button>Add</button> */}
         <Dialog field="admi_category" getData={getData} />
       </div>
-      <div className="relative overflow-x-auto w-full">
+      <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-l text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -128,6 +127,7 @@ function MasterTable() {
                   <td className="px-6 py-4">{item.type}</td>
                   <td className="px-6 py-4">
                     <button
+                      className="flex "
                       onClick={(e) =>
                         deleteUser(e, item.type, "e_grants_category")
                       }

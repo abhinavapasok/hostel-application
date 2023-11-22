@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { baseUrl } from "../baseUrl";
 
+
 function Dialog({field,getData}:any) {
 
 
@@ -20,8 +21,10 @@ function Dialog({field,getData}:any) {
   
   const handleSubmit = async (e:any)=>{
     e.preventDefault()
+    console.log("submited")
     try {
       console.log(field)
+      getData()
       const response = await fetch(`${baseUrl}/create-field`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -31,7 +34,6 @@ function Dialog({field,getData}:any) {
     } catch (err: any) {
       console.error(err.message);
     }
-    getData()
 
   }
 
