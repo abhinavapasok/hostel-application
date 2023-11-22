@@ -8,6 +8,7 @@ function MasterTable() {
   const [admifields, setAdmiFields] = useState([]);
   const [e_grantsfields, setE_grantsFields] = useState([]);
   const getData = async () => {
+    console.log("hi ms table getfields");
     try {
       const response = await fetch(`${baseUrl}/get-fields`);
       const jsondata = await response.json();
@@ -20,6 +21,7 @@ function MasterTable() {
   };
 
   const deleteUser = async (e: any, id: any, field: string) => {
+    console.log("ms table del field");
     e.stopPropagation();
     try {
       const res = await fetch(
@@ -35,7 +37,7 @@ function MasterTable() {
     }
   };
   useEffect(() => {
-    getData()
+    getData();
   }, []);
 
   return (
@@ -73,7 +75,7 @@ function MasterTable() {
         >
           Add
         </button> */}
-        <Dialog field={"gender"} getData={getData()} />
+        <Dialog field={"gender"} getData={getData} />
       </div>
       <div className="relative overflow-x-auto  w-full">
         <table className="w-full  text-sm text-left text-gray-500 dark:text-gray-400">
@@ -105,7 +107,7 @@ function MasterTable() {
           </tbody>
         </table>
         {/* <button>Add</button> */}
-        <Dialog field="admi_category" getData={getData()} />
+        <Dialog field="admi_category" getData={getData} />
       </div>
       <div className="relative overflow-x-auto w-full">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -138,7 +140,7 @@ function MasterTable() {
             })}
           </tbody>
         </table>
-        <Dialog field="e_grants_category" getData={getData()} />
+        <Dialog field="e_grants_category" getData={getData} />
       </div>
     </div>
   );

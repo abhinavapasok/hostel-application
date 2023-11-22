@@ -24,7 +24,7 @@ function DisplayTable() {
   const getData = async () => {
     try {
 
-      console.log("hi");
+      console.log("hi ds table get details");
       const response = await fetch(`${baseUrl}/get-details`);
       const jsondata = await response.json();
       setData(jsondata);
@@ -35,6 +35,7 @@ function DisplayTable() {
 
   const deleteUser = async (e:any,id: any) => {
     e.stopPropagation();
+    console.log("hi ds table get details");
     try {
       const res = await fetch(`${baseUrl}/remove-user/${id}`, {
         method: "DELETE",
